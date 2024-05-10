@@ -1,0 +1,41 @@
+<div class="w-full p-5 md:pt-16 md:pb-5 md:px-16 flex justify-between items-center">
+  <a routerLink="" class="flex justify-between items-center text-white font-bold text-xl">
+    <img
+      class="h-7 w-auto"
+      src="assets/images/logo.png"
+      alt="home-icon"
+    >
+    {{ name }}
+  </a>
+  <div class="group hidden md:flex md:space-x-12">
+    <a
+      routerLink="{{ getDestination(item) }}"
+      class="text-gray-400 font-semibold text-lg hover:text-white"
+      (click)=" item == 'Contact' ? navigateTo(item) : '' "
+      *ngFor="let item of navbarItems"
+    >
+      {{ item }}
+    </a>
+  </div>
+</div>
+
+<div class="md:hidden xl:hidden fixed z-50 top-auto bottom-0 w-full p-4  ">
+  <nav class="flex justify-evenly py-4 bg-indigo-600 shadow-2xl rounded-lg overflow-hidden">
+    <a
+      *ngFor="let item of navbarItems; let i = index"
+      href="javascript:void(0)"
+      (click)="navigateTo(item)"
+      [ngClass]="{'text-indigo-900': active === item}"
+      class="flex flex-col space-y-1 text-gray-300  justify-center items-center cursor-pointer text-sm font-semibold "
+    >
+      <img
+        class="h-4 w-auto"
+        src="{{ navbarIconsPath[i] }}"
+        alt="home-icon"
+      >
+      {{ item }}
+    </a>
+  </nav>
+</div>
+
+<router-outlet></router-outlet>
