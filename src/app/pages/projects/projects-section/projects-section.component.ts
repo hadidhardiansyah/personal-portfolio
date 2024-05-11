@@ -1,6 +1,6 @@
-import { Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { fade, fadeInView, staggerFade } from 'src/app/animations/animations';
-import { ProjectCardComponent } from '../project-card/project-card.component';
+import {Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {fade, fadeInView, staggerFade} from 'src/app/animations/animations';
+import {ProjectCardComponent} from '../project-card/project-card.component';
 
 @Component({
   selector: 'app-projects-section',
@@ -12,7 +12,7 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
 })
 export class ProjectsSectionComponent implements OnInit {
 
-  @ViewChildren(ProjectCardComponent ,{ read: ElementRef }) projs: QueryList<ElementRef>
+  @ViewChildren(ProjectCardComponent, {read: ElementRef}) projs: QueryList<ElementRef>
   inViewList: Array<boolean> = [];
 
   projects: Array<any> = [
@@ -26,12 +26,23 @@ export class ProjectsSectionComponent implements OnInit {
     {
       projectImg: 'todoListApp.png',
       projectName: 'Todo List',
-      projectDescription: 'Webapp to explore more about your zodiac sign and which celebrity one shares it’s zodiac sign.',
+      projectDescription: 'IOS mobile application for list what to do.',
       isProjectGithubLinkPresent: true,
       projectGithubLink: 'https://github.com/hadidhardiansyah/Todo-List-with-App-Storage',
     },
+    {
+      projectImg: 'portfolio.png',
+      projectName: 'Personal Portfolio',
+      projectDescription: 'Webapp personal portfolio.',
+      isProjectLinkPresent: true,
+      projectLiveLink: 'https://personal-portfolio-jmzsinem9-hadidhardiansyahs-projects.vercel.app',
+      isProjectGithubLinkPresent: true,
+      projectGithubLink: 'https://github.com/hadidhardiansyah/personal-portfolio',
+    },
   ]
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
