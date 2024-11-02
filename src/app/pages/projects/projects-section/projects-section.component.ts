@@ -17,6 +17,13 @@ export class ProjectsSectionComponent implements OnInit {
 
   projects: Array<any> = [
     {
+      projectImg: 'cryptoApp.png',
+      projectName: 'Crypto Tracker',
+      projectDescription: 'The cryptocurrency data that is used in this app comes from a free API from CoinGecko! Prices may be slightly delayed',
+      isProjectGithubLinkPresent: true,
+      projectGithubLink: 'https://github.com/hadidhardiansyah/Crypto-Tracker',
+    },
+    {
       projectImg: 'mapsApp.png',
       projectName: 'Maps',
       projectDescription: 'IOS mobile application that shows the coordinates of a place',
