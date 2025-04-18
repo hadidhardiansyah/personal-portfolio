@@ -24,7 +24,10 @@ export class ProjectCardComponent implements OnInit {
 
   viewGithubProject(event) {
     window.open(this.project.projectGithubLink, "_blank");
+  }
 
+  viewSecondGithubProject(event) {
+    window.open(this.project.projectSecondGithubLink, "_blank");
   }
 
 }

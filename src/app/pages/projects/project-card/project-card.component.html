@@ -37,6 +37,10 @@
         bgColor="GRAY900" btnLabel="Github" [isIconActive]="true" iconType="GITHUB" iconSize="LG">
       </app-custom-button>
 
+      <app-custom-button *ngIf="project.isMultipleProjectGithubLinkPresent" (onBtnClicked)="viewGithubProject($event)" size="MD"
+                         bgColor="GRAY900" btnLabel="Github" [isIconActive]="true" iconType="GITHUB" iconSize="LG">
+      </app-custom-button>
+
     </div>
   </div>
 </div>
