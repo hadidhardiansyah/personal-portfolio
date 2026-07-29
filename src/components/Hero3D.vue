@@ -2,7 +2,10 @@
 import { onMounted, onBeforeUnmount, ref } from 'vue'
 import * as THREE from 'three'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const canvasContainer = ref<HTMLElement | null>(null)
 
@@ -61,11 +64,48 @@ const initThree = () => {
       macbook.rotation.x = 0.2
       macbook.rotation.y = -0.2
       
-      // Add to a pivot group so we can animate it easily
+      // Create a wrapper group for scroll animations so it doesn't conflict with ambient animations
+      const macbookScrollGroup = new THREE.Group()
+      macbookScrollGroup.add(macbook)
+
+      // Add to a pivot group so we can animate it easily for ambient floating
       const pivot = new THREE.Group()
       pivot.name = 'macbookPivot'
-      pivot.add(macbook)
+      pivot.add(macbookScrollGroup)
       group.add(pivot)
+
+      // === SCROLLYTELLING ANIMATION ===
+      // Animate the macbookScrollGroup based on page scroll
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: document.body,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 1.5,
+        },
+        defaults: { ease: 'none' } // <-- THIS FIXES THE CHOPPY FEELING
+      })
+
+      // Set initial scale to be large at the top
+      macbookScrollGroup.scale.set(2.5, 2.5, 2.5)
+
+      // Frame 1: Hero to Intro (0% - 33%)
+      // Moves left, rotates to side, SHRINKS to normal size
+      tl.to(macbookScrollGroup.position, { x: -6, y: 2, z: 3, duration: 1 }, 0)
+      tl.to(macbookScrollGroup.rotation, { y: Math.PI / 1.5, x: 0.1, duration: 1 }, 0)
+      tl.to(macbookScrollGroup.scale, { x: 1.0, y: 1.0, z: 1.0, duration: 1 }, 0)
+
+      // Frame 2: Intro to Featured Systems (33% - 66%)
+      // Moves right, zooms in, flips
+      tl.to(macbookScrollGroup.position, { x: 6, y: -1, z: 6, duration: 1 }, 1)
+      tl.to(macbookScrollGroup.rotation, { y: Math.PI * 1.2, x: -0.2, duration: 1 }, 1)
+      tl.to(macbookScrollGroup.scale, { x: 1.8, y: 1.8, z: 1.8, duration: 1 }, 1)
+
+      // Frame 3: Featured to Playground & Footer (66% - 100%)
+      // Moves center, zooms heavily into the screen, facing forward
+      tl.to(macbookScrollGroup.position, { x: 0, y: -2, z: 12, duration: 1 }, 2)
+      tl.to(macbookScrollGroup.rotation, { y: Math.PI * 2, x: -0.15, duration: 1 }, 2)
+      tl.to(macbookScrollGroup.scale, { x: 5, y: 5, z: 5, duration: 1 }, 2)
     },
     undefined,
     (error) => {

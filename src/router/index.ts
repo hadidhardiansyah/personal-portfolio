@@ -23,11 +23,8 @@ const router = createRouter({
     },
   ],
   scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0, behavior: 'smooth' }
-    }
+    // Selalu paksa mulai dari paling atas, abaikan savedPosition dari browser
+    return { top: 0, left: 0 }
   },
 })
 

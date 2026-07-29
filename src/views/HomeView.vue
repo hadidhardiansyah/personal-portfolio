@@ -14,6 +14,12 @@ const contentCardWrapper = ref<HTMLElement | null>(null)
 const isAnimating = ref(false)
 
 onMounted(() => {
+  // Prevent browser from restoring previous scroll position on refresh
+  if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual'
+  }
+  window.scrollTo(0, 0)
+
   if (contentCardWrapper.value) {
     gsap.from(contentCardWrapper.value, {
       scrollTrigger: {
@@ -111,7 +117,7 @@ const introOptions = [
     </section>
 
     <!-- About Section (Interactive Intro) -->
-    <section id="about" class="w-full bg-[#111111] text-white py-32 px-6 md:px-12 lg:px-24">
+    <section id="about" class="w-full bg-black/40 backdrop-blur-sm text-white py-32 px-6 md:px-12 lg:px-24 border-t border-white/5">
       <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-24">
         <!-- Sidebar Menu -->
         <div class="md:col-span-4 lg:col-span-3">
@@ -179,7 +185,7 @@ const introOptions = [
     </section>
 
     <!-- Featured Systems Section -->
-    <section class="w-full bg-secondary text-white py-32 px-6 md:px-12 lg:px-24">
+    <section class="w-full bg-black/40 backdrop-blur-sm text-white py-32 px-6 md:px-12 lg:px-24 border-t border-white/5">
       <div class="max-w-7xl mx-auto">
         <div class="mb-16">
           <div
@@ -236,7 +242,7 @@ const introOptions = [
     </section>
 
     <!-- Playground Section -->
-    <section class="w-full bg-[#111] text-white py-32 px-6 md:px-12 lg:px-24">
+    <section class="w-full bg-black/40 backdrop-blur-sm text-white py-32 px-6 md:px-12 lg:px-24 border-t border-white/5">
       <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
         <!-- Left Text -->
         <div class="lg:w-1/3">
@@ -315,7 +321,7 @@ const introOptions = [
     </section>
 
     <!-- Tech Stack Section -->
-    <section class="w-full bg-secondary text-white py-32 px-6 md:px-12 lg:px-24">
+    <section class="w-full bg-black/60 backdrop-blur-md text-white py-32 px-6 md:px-12 lg:px-24 border-t border-white/5">
       <div class="max-w-7xl mx-auto text-center">
         <h2 class="text-4xl md:text-6xl font-semibold tracking-tight mb-6">Technical Arsenal</h2>
         <p class="text-lg text-gray-400 font-light max-w-2xl mx-auto mb-20">
