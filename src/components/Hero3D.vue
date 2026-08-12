@@ -178,8 +178,11 @@ const onDocumentMouseMove = (event: MouseEvent) => {
 
 const onDocumentTouchMove = (event: TouchEvent) => {
   if (event.touches.length > 0) {
-    mouse.x = event.touches[0].clientX - windowHalf.x
-    mouse.y = event.touches[0].clientY - windowHalf.y
+    const touch = event.touches[0]
+    if (touch) {
+      mouse.x = touch.clientX - windowHalf.x
+      mouse.y = touch.clientY - windowHalf.y
+    }
   }
 }
 
