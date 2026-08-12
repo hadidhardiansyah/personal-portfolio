@@ -96,18 +96,18 @@ onUnmounted(() => {
   <div
     class="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none px-6 text-center"
   >
-    <!-- Container to hold the height fixed while animating -->
-    <div class="relative flex justify-center items-center h-30 mb-8">
+    <!-- Container to allow height to grow on mobile if text wraps -->
+    <div class="relative flex justify-center items-center min-h-[120px] md:h-30 mb-8">
       <!-- Phase 2: Initial Name Fill & Scale Animation -->
       <div
         v-show="!typewriterStarted"
         ref="introName"
-        class="text-6xl md:text-8xl font-medium tracking-tight text-[#444] relative origin-center whitespace-nowrap"
+        class="text-5xl md:text-8xl font-medium tracking-tight text-[#444] relative origin-center whitespace-normal md:whitespace-nowrap leading-tight"
       >
         {{ titles[0] }}
         <span
           ref="introNameFill"
-          class="absolute left-0 top-0 text-white overflow-hidden whitespace-nowrap"
+          class="absolute left-0 top-0 w-full h-full text-white overflow-hidden whitespace-normal md:whitespace-nowrap leading-tight"
           style="clip-path: inset(0 100% 0 0)"
         >
           {{ titles[0] }}
@@ -117,7 +117,7 @@ onUnmounted(() => {
       <!-- Phase 3: Typewriter Headline (Swaps in after scale finishes) -->
       <h1
         v-show="typewriterStarted"
-        class="text-6xl md:text-8xl font-medium tracking-tight whitespace-nowrap text-white"
+        class="text-5xl md:text-8xl font-medium tracking-tight whitespace-normal md:whitespace-nowrap text-white leading-tight"
       >
         {{ currentText }}<span class="animate-pulse">|</span>
       </h1>
@@ -128,7 +128,7 @@ onUnmounted(() => {
       ref="subDesc"
       class="max-w-xl text-sm md:text-base font-light text-gray-300 leading-relaxed opacity-0 transform translate-y-5"
     >
-      Jakarta-based Software Engineer specializing in banking and finance sectors with a track
+      Bogor-based Software Engineer specializing in banking and finance sectors with a track
       record of engineering secure, high-volume systems.
     </p>
   </div>

@@ -81,7 +81,7 @@ const scrollToTop = () => {
         </a>
         <div class="flex items-center gap-2 text-sm text-gray-400">
           <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-          Available for work — Jakarta, ID
+          Available for work — Bogor, ID
         </div>
       </div>
     </div>

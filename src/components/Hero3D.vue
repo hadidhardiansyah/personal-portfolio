@@ -165,6 +165,7 @@ const initThree = () => {
 
   // Listeners
   document.addEventListener('mousemove', onDocumentMouseMove)
+  document.addEventListener('touchmove', onDocumentTouchMove, { passive: true })
   window.addEventListener('resize', onWindowResize)
 
   animate()
@@ -173,6 +174,13 @@ const initThree = () => {
 const onDocumentMouseMove = (event: MouseEvent) => {
   mouse.x = event.clientX - windowHalf.x
   mouse.y = event.clientY - windowHalf.y
+}
+
+const onDocumentTouchMove = (event: TouchEvent) => {
+  if (event.touches.length > 0) {
+    mouse.x = event.touches[0].clientX - windowHalf.x
+    mouse.y = event.touches[0].clientY - windowHalf.y
+  }
 }
 
 const onWindowResize = () => {
@@ -217,6 +225,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   document.removeEventListener('mousemove', onDocumentMouseMove)
+  document.removeEventListener('touchmove', onDocumentTouchMove)
   window.removeEventListener('resize', onWindowResize)
   if (animationFrameId) cancelAnimationFrame(animationFrameId)
   if (renderer) renderer.dispose()

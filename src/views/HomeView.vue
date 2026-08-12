@@ -208,7 +208,7 @@ const introOptions = [
     <!-- The Blueprint Section (Interactive IDE) -->
     <section
       id="about"
-      class="w-full bg-black/40 backdrop-blur-sm text-white py-32 px-6 md:px-12 lg:px-24 border-t border-white/5"
+      class="w-full bg-black/40 backdrop-blur-sm text-white py-16 lg:py-32 px-6 md:px-12 lg:px-24 border-t border-white/5"
     >
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
         <!-- Sidebar Menu (File Explorer) -->
@@ -319,7 +319,7 @@ const introOptions = [
 
     <!-- Enterprise Experience Section -->
     <section
-      class="w-full bg-black/40 backdrop-blur-sm text-white py-32 px-6 md:px-12 lg:px-24 border-t border-white/5"
+      class="w-full bg-black/40 backdrop-blur-sm text-white py-16 lg:py-32 px-6 md:px-12 lg:px-24 border-t border-white/5"
     >
       <div class="max-w-7xl mx-auto">
         <div class="mb-16">
@@ -614,7 +614,7 @@ const introOptions = [
 
     <!-- Startup Experience Section (Bento Box) -->
     <section
-      class="w-full bg-black/40 backdrop-blur-sm text-white py-32 px-6 md:px-12 lg:px-24 relative overflow-hidden border-t border-white/5"
+      class="w-full bg-black/40 backdrop-blur-sm text-white py-16 lg:py-32 px-6 md:px-12 lg:px-24 relative overflow-hidden border-t border-white/5"
     >
       <!-- Ambient Glows -->
       <div
@@ -937,7 +937,7 @@ const introOptions = [
 
     <!-- Selected Projects Section -->
     <section
-      class="w-full bg-black/40 backdrop-blur-sm text-white py-32 px-6 md:px-12 lg:px-24 border-t border-white/5"
+      class="w-full bg-black/40 backdrop-blur-sm text-white py-16 lg:py-32 px-6 md:px-12 lg:px-24 border-t border-white/5"
     >
       <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
         <!-- Left Text -->
@@ -1017,7 +1017,7 @@ const introOptions = [
     </section>
 
     <!-- Core Technologies Section -->
-    <section class="w-full bg-transparent text-white py-32 overflow-hidden">
+    <section class="w-full bg-transparent text-white py-16 lg:py-32 overflow-hidden">
       <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mb-16 text-center">
         <!-- Section Header -->
         <div

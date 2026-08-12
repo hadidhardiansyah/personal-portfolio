@@ -69,7 +69,7 @@ onUnmounted(() => {
 <template>
   <div
     ref="cursor"
-    class="fixed top-0 left-0 pointer-events-none z-9999 transition-opacity duration-300 flex items-center justify-center mix-blend-difference"
+    class="fixed top-0 left-0 pointer-events-none z-9999 transition-opacity duration-300 hidden md:flex items-center justify-center mix-blend-difference"
     :class="isVisible ? 'opacity-100' : 'opacity-0'"
   >
     <div
