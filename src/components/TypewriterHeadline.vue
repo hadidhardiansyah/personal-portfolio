@@ -11,7 +11,7 @@ const titles = [
 
 const currentText = ref(titles[0])
 let titleIndex = 0
-let charIndex = titles[0].length
+let charIndex = titles[0]?.length || 0
 let isDeleting = true
 let timeoutId: number | null = null
 
