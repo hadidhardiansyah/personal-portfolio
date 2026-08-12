@@ -7,6 +7,13 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const props = defineProps({
+  showMacbook: {
+    type: Boolean,
+    default: true
+  }
+})
+
 const canvasContainer = ref<HTMLElement | null>(null)
 
 let scene: THREE.Scene
@@ -40,11 +47,12 @@ const initThree = () => {
   group = new THREE.Group()
   scene.add(group)
 
-  // Load MacBook Model
-  const gltfLoader = new GLTFLoader()
-  gltfLoader.load(
-    '/models/macbook.glb',
-    (gltf) => {
+  // Load MacBook Model conditionally
+  if (props.showMacbook) {
+    const gltfLoader = new GLTFLoader()
+    gltfLoader.load(
+      '/models/macbook.glb',
+      (gltf) => {
       const macbook = gltf.scene
       
       // Auto-center and scale the model
@@ -111,7 +119,7 @@ const initThree = () => {
     (error) => {
       console.error('Error loading macbook model:', error)
     }
-  )
+  )}
 
   // Lighting for the PBR Macbook Model
   const ambientLight = new THREE.AmbientLight(0xffffff, 2)

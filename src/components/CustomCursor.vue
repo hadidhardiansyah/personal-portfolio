@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 
 const cursor = ref<HTMLElement | null>(null)
 const isHovering = ref(false)
@@ -79,8 +82,8 @@ onUnmounted(() => {
       <span
         class="text-black text-xs font-semibold tracking-wider text-center leading-tight transition-opacity duration-300 delay-100"
         :class="isProjectHover ? 'opacity-100' : 'opacity-0 hidden'"
+        v-html="route.path === '/projects' ? 'See<br />Detail' : 'View<br />Project'"
       >
-        View<br />Project
       </span>
     </div>
   </div>

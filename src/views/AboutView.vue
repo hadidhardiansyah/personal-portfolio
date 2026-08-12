@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Hero3D from '../components/Hero3D.vue'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -87,7 +88,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="w-full min-h-screen bg-secondary text-white pt-24">
+  <main class="w-full min-h-screen bg-transparent text-white pt-24 relative">
+    <Hero3D :showMacbook="false" />
+    
     <!-- Hero Section -->
     <section
       class="w-full flex flex-col items-center justify-center pt-24 pb-32 relative overflow-hidden px-4"
@@ -100,13 +103,13 @@ onMounted(() => {
           ABOUT ME
         </div>
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-semibold mb-6 tracking-tight text-white">
-          Hey! Thanks for stopping by
+          Hey, I'm Hadid.
         </h1>
         <p class="text-lg md:text-2xl text-gray-400 font-light mb-2">
-          Architecting Solutions and Scaling Platforms
+          I build scalable applications and high-performance systems.
         </p>
         <p class="text-lg md:text-2xl text-gray-400 font-light">
-          Bridging Worlds Through Code and Innovation
+          From enterprise banking to modern fullstack products.
         </p>
       </div>
 
@@ -137,13 +140,13 @@ onMounted(() => {
           class="absolute top-5 -right-15 md:top-10 md:-right-25 bg-[#d8b4fe] text-black text-xs font-bold px-4 py-2 rounded-full transform rotate-6 animate-[bounce_4s_infinite] shadow-lg z-20"
           style="animation-delay: 0.5s"
         >
-          Angular Expert
+          Software Engineer
         </div>
         <div
           class="absolute -bottom-2.5 -left-15 md:-bottom-5 md:-left-20 bg-[#f9a8d4] text-black text-xs font-bold px-4 py-2 rounded-full transform -rotate-12 animate-[bounce_3.5s_infinite] shadow-lg z-20"
           style="animation-delay: 1s"
         >
-          Spring Boot
+          Product Builder
         </div>
         <div
           class="absolute bottom-5 -right-12.5 md:bottom-0 md:-right-20 bg-[#93c5fd] text-black text-xs font-bold px-4 py-2 rounded-full transform rotate-12 animate-[bounce_4.5s_infinite] shadow-lg z-20"
@@ -153,9 +156,8 @@ onMounted(() => {
         </div>
       </div>
     </section>
-
     <!-- Timeline Section -->
-    <section class="w-full py-32 px-6 md:px-12 lg:px-24 bg-black relative">
+    <section class="w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent relative border-t border-white/5">
       <div class="max-w-7xl mx-auto text-center mb-24 relative z-10">
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight uppercase">
           My Professional Journey
@@ -171,21 +173,18 @@ onMounted(() => {
       </div>
 
       <div class="max-w-5xl mx-auto relative z-10 flex flex-col gap-24">
-        <!-- Node 1 -->
+        <!-- Node 1: Genia OS -->
         <div class="timeline-node flex flex-col md:flex-row w-full items-center justify-between">
           <div
             class="timeline-node-content w-full md:w-[45%] text-right pr-0 md:pr-12 mb-8 md:mb-0 order-2 md:order-1"
           >
             <span class="text-gray-500 text-sm tracking-widest mb-2 block">01</span>
             <h3 class="text-2xl md:text-4xl font-semibold mb-4 uppercase text-gray-200 title-text">
-              FIFGROUP
+              Genia OS
             </h3>
-            <p class="text-blue-500 font-medium mb-4 subtitle-text">May 2025 – Present</p>
+            <p class="text-blue-500 font-medium mb-4 subtitle-text">Apr 2026 – Present</p>
             <p class="text-gray-500 font-light leading-relaxed body-text">
-              Engineered high-stakes features using Spring Boot 3 and Angular v20+ for a B2B Dealer
-              Financing & AHASS Sparepart Financing Platform. Executed framework migration to
-              Angular 21, optimized build performance, and managed independent increments in
-              OpenShift (OCP) environments.
+              Leading the technical vision as CTO & Co-Founder. Architecting a scalable multi-tenant SaaS Point of Sales platform using Next.js, Supabase, and PostgreSQL, processing hundreds of live daily transactions.
             </p>
           </div>
           <div class="hidden md:flex w-[10%] justify-center order-2">
@@ -196,7 +195,7 @@ onMounted(() => {
           <div class="w-full md:w-[45%] order-1 md:order-3"></div>
         </div>
 
-        <!-- Node 2 -->
+        <!-- Node 2: FIFGROUP -->
         <div class="timeline-node flex flex-col md:flex-row w-full items-center justify-between">
           <div class="w-full md:w-[45%] order-2 md:order-1"></div>
           <div class="hidden md:flex w-[10%] justify-center order-2">
@@ -209,6 +208,25 @@ onMounted(() => {
           >
             <span class="text-gray-500 text-sm tracking-widest mb-2 block">02</span>
             <h3 class="text-2xl md:text-4xl font-semibold mb-4 uppercase text-gray-200 title-text">
+              FIFGROUP
+            </h3>
+            <p class="text-blue-500 font-medium mb-4 subtitle-text">May 2025 – Present</p>
+            <p class="text-gray-500 font-light leading-relaxed body-text">
+              Engineered high-stakes features using Spring Boot 3 and Angular v20+ for a B2B Dealer
+              Financing & AHASS Sparepart Financing Platform. Executed framework migration to
+              Angular 21, optimized build performance, and managed independent increments in
+              OpenShift (OCP) environments.
+            </p>
+          </div>
+        </div>
+
+        <!-- Node 3: Bank Mandiri (Feb - Dec) -->
+        <div class="timeline-node flex flex-col md:flex-row w-full items-center justify-between">
+          <div
+            class="timeline-node-content w-full md:w-[45%] text-right pr-0 md:pr-12 mb-8 md:mb-0 order-2 md:order-1"
+          >
+            <span class="text-gray-500 text-sm tracking-widest mb-2 block">03</span>
+            <h3 class="text-2xl md:text-4xl font-semibold mb-4 uppercase text-gray-200 title-text">
               PT Bank Mandiri Tbk
             </h3>
             <p class="text-blue-500 font-medium mb-4 subtitle-text">Feb 2024 – Dec 2024</p>
@@ -218,14 +236,26 @@ onMounted(() => {
               platform migration from Angular 16 to 18, and automated frontend QA using Jasmine.
             </p>
           </div>
+          <div class="hidden md:flex w-[10%] justify-center order-2">
+            <div
+              class="timeline-dot w-4 h-4 rounded-full border-2 border-gray-400 bg-secondary ring-4 ring-black transition-all duration-300"
+            ></div>
+          </div>
+          <div class="w-full md:w-[45%] order-1 md:order-3"></div>
         </div>
 
-        <!-- Node 3 -->
+        <!-- Node 4: Bank Mandiri (Jan - Dec) -->
         <div class="timeline-node flex flex-col md:flex-row w-full items-center justify-between">
+          <div class="w-full md:w-[45%] order-2 md:order-1"></div>
+          <div class="hidden md:flex w-[10%] justify-center order-2">
+            <div
+              class="timeline-dot w-4 h-4 rounded-full border-2 border-gray-400 bg-secondary ring-4 ring-black transition-all duration-300"
+            ></div>
+          </div>
           <div
-            class="timeline-node-content w-full md:w-[45%] text-right pr-0 md:pr-12 mb-8 md:mb-0 order-2 md:order-1"
+            class="timeline-node-content w-full md:w-[45%] text-left pl-0 md:pl-12 mb-8 md:mb-0 order-1 md:order-3"
           >
-            <span class="text-gray-500 text-sm tracking-widest mb-2 block">03</span>
+            <span class="text-gray-500 text-sm tracking-widest mb-2 block">04</span>
             <h3 class="text-2xl md:text-4xl font-semibold mb-4 uppercase text-gray-200 title-text">
               PT Bank Mandiri Tbk
             </h3>
@@ -236,18 +266,11 @@ onMounted(() => {
               LoadRunner, delivering data-driven insights to backend teams.
             </p>
           </div>
-          <div class="hidden md:flex w-[10%] justify-center order-2">
-            <div
-              class="timeline-dot w-4 h-4 rounded-full border-2 border-gray-400 bg-secondary ring-4 ring-black transition-all duration-300"
-            ></div>
-          </div>
-          <div class="w-full md:w-[45%] order-1 md:order-3"></div>
         </div>
       </div>
     </section>
-
     <!-- Process Section -->
-    <section class="w-full py-32 px-6 md:px-12 lg:px-24 bg-secondary">
+    <section class="w-full py-32 px-6 md:px-12 lg:px-24 bg-transparent border-t border-white/5">
       <div class="max-w-7xl mx-auto">
         <div
           class="flex items-center gap-2 mb-6 text-sm tracking-[0.2em] uppercase text-gray-500 font-medium"
@@ -255,7 +278,7 @@ onMounted(() => {
           <span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span>
           HOW I WORK
         </div>
-        <h2 class="text-4xl md:text-6xl font-semibold mb-8 tracking-tight">Design Process</h2>
+        <h2 class="text-4xl md:text-6xl font-semibold mb-8 tracking-tight">Engineering Process</h2>
         <p class="text-xl text-gray-400 font-light max-w-2xl mb-20 leading-relaxed">
           Rooted in robust architecture, clean code, and scalable deployments, my development
           process transforms business requirements into secure, high-performance platforms.
@@ -264,7 +287,7 @@ onMounted(() => {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Card 1 -->
           <div
-            class="bg-[#111] p-10 rounded-3xl border border-white/5 hover:bg-[#151515] hover:border-white/10 transition-all group"
+            class="bg-white/[0.03] backdrop-blur-md p-10 rounded-3xl border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-all group shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
           >
             <div
               class="w-12 h-12 rounded-xl bg-green-900/20 border border-green-500/20 flex items-center justify-center mb-8 text-green-500 group-hover:scale-110 transition-transform"
@@ -278,7 +301,7 @@ onMounted(() => {
                 ></path>
               </svg>
             </div>
-            <h3 class="text-2xl font-semibold mb-4">Discover</h3>
+            <h3 class="text-2xl font-semibold mb-4">System Design</h3>
             <p class="text-gray-400 font-light leading-relaxed text-sm">
               Every project begins by uncovering technical constraints, business logic, and scaling
               requirements through thoughtful system design and architectural mapping.
@@ -287,7 +310,7 @@ onMounted(() => {
 
           <!-- Card 2 -->
           <div
-            class="bg-[#111] p-10 rounded-3xl border border-white/5 hover:bg-[#151515] hover:border-white/10 transition-all group"
+            class="bg-white/[0.03] backdrop-blur-md p-10 rounded-3xl border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-all group shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
           >
             <div
               class="w-12 h-12 rounded-xl bg-blue-900/20 border border-blue-500/20 flex items-center justify-center mb-8 text-blue-500 group-hover:scale-110 transition-transform"
@@ -301,7 +324,7 @@ onMounted(() => {
                 ></path>
               </svg>
             </div>
-            <h3 class="text-2xl font-semibold mb-4">Design</h3>
+            <h3 class="text-2xl font-semibold mb-4">Development</h3>
             <p class="text-gray-400 font-light leading-relaxed text-sm">
               From architecture to execution, code is written with clarity, intention, and
               performance in mind using Spring Boot, Angular, and PostgreSQL.
@@ -310,7 +333,7 @@ onMounted(() => {
 
           <!-- Card 3 -->
           <div
-            class="bg-[#111] p-10 rounded-3xl border border-white/5 hover:bg-[#151515] hover:border-white/10 transition-all group"
+            class="bg-white/[0.03] backdrop-blur-md p-10 rounded-3xl border border-white/10 hover:bg-white/[0.08] hover:border-white/20 transition-all group shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
           >
             <div
               class="w-12 h-12 rounded-xl bg-orange-900/20 border border-orange-500/20 flex items-center justify-center mb-8 text-orange-500 group-hover:scale-110 transition-transform"
@@ -324,7 +347,7 @@ onMounted(() => {
                 ></path>
               </svg>
             </div>
-            <h3 class="text-2xl font-semibold mb-4">Deliver</h3>
+            <h3 class="text-2xl font-semibold mb-4">Deployment</h3>
             <p class="text-gray-400 font-light leading-relaxed text-sm">
               Fast, focused, and secure — scalable solutions delivered via CI/CD pipelines to
               OpenShift (OCP), ensuring momentum and stability never stall.
