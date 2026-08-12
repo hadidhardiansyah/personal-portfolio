@@ -968,7 +968,7 @@ const introOptions = [
               class="project-card group cursor-pointer bg-blue-900/20 border border-blue-500/20 rounded-4xl aspect-4/3 overflow-hidden relative hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(59,130,246,0.1)] transition-all duration-500"
             >
               <img
-                src="/images/bsn-home.png"
+                src="/images/bsn/3-bsn-home.png"
                 class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                 alt="Book Social Network"
               />
@@ -993,7 +993,7 @@ const introOptions = [
               class="project-card group cursor-pointer bg-fuchsia-900/20 border border-fuchsia-500/20 rounded-4xl aspect-4/3 overflow-hidden relative hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(217,70,239,0.1)] transition-all duration-500"
             >
               <img
-                src="/images/bills-food-home.png"
+                src="/images/bills-food/1-home.png"
                 class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                 alt="Bills Food"
               />
