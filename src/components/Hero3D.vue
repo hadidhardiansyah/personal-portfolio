@@ -25,6 +25,7 @@ let animationFrameId: number
 const mouse = { x: 0, y: 0 }
 const target = { x: 0, y: 0 }
 const windowHalf = { x: window.innerWidth / 2, y: window.innerHeight / 2 }
+const isMobile = () => window.innerWidth < 768
 
 const initThree = () => {
   if (!canvasContainer.value) return
@@ -35,7 +36,7 @@ const initThree = () => {
 
   // Camera
   camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000)
-  camera.position.z = 30
+  camera.position.z = isMobile() ? 45 : 30
 
   // Renderer
   renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true })
@@ -94,26 +95,30 @@ const initThree = () => {
         defaults: { ease: 'none' } // <-- THIS FIXES THE CHOPPY FEELING
       })
 
-      // Set initial scale to be large at the top
-      macbookScrollGroup.scale.set(2.5, 2.5, 2.5)
+      // Set initial scale to be large at the top (smaller on mobile)
+      const mobileScale = isMobile() ? 0.5 : 1.0
+      const initialScale = isMobile() ? 1.2 : 2.5
+      macbookScrollGroup.scale.set(initialScale, initialScale, initialScale)
 
       // Frame 1: Hero to Intro (0% - 33%)
       // Moves left, rotates to side, SHRINKS to normal size
-      tl.to(macbookScrollGroup.position, { x: -6, y: 2, z: 3, duration: 1 }, 0)
+      tl.to(macbookScrollGroup.position, { x: isMobile() ? -3 : -6, y: isMobile() ? 1 : 2, z: 3, duration: 1 }, 0)
       tl.to(macbookScrollGroup.rotation, { y: Math.PI / 1.5, x: 0.1, duration: 1 }, 0)
-      tl.to(macbookScrollGroup.scale, { x: 1.0, y: 1.0, z: 1.0, duration: 1 }, 0)
+      tl.to(macbookScrollGroup.scale, { x: mobileScale, y: mobileScale, z: mobileScale, duration: 1 }, 0)
 
       // Frame 2: Intro to Featured Systems (33% - 66%)
       // Moves right, zooms in, flips
-      tl.to(macbookScrollGroup.position, { x: 6, y: -1, z: 6, duration: 1 }, 1)
+      const frame2Scale = isMobile() ? 0.9 : 1.8
+      tl.to(macbookScrollGroup.position, { x: isMobile() ? 3 : 6, y: -1, z: 6, duration: 1 }, 1)
       tl.to(macbookScrollGroup.rotation, { y: Math.PI * 1.2, x: -0.2, duration: 1 }, 1)
-      tl.to(macbookScrollGroup.scale, { x: 1.8, y: 1.8, z: 1.8, duration: 1 }, 1)
+      tl.to(macbookScrollGroup.scale, { x: frame2Scale, y: frame2Scale, z: frame2Scale, duration: 1 }, 1)
 
       // Frame 3: Featured to Playground & Footer (66% - 100%)
       // Moves center, zooms heavily into the screen, facing forward
-      tl.to(macbookScrollGroup.position, { x: 0, y: -2, z: 12, duration: 1 }, 2)
+      const frame3Scale = isMobile() ? 2.5 : 5
+      tl.to(macbookScrollGroup.position, { x: 0, y: -2, z: isMobile() ? 8 : 12, duration: 1 }, 2)
       tl.to(macbookScrollGroup.rotation, { y: Math.PI * 2, x: -0.15, duration: 1 }, 2)
-      tl.to(macbookScrollGroup.scale, { x: 5, y: 5, z: 5, duration: 1 }, 2)
+      tl.to(macbookScrollGroup.scale, { x: frame3Scale, y: frame3Scale, z: frame3Scale, duration: 1 }, 2)
     },
     undefined,
     (error) => {
@@ -191,6 +196,7 @@ const onWindowResize = () => {
   windowHalf.y = window.innerHeight / 2
 
   camera.aspect = window.innerWidth / window.innerHeight
+  camera.position.z = isMobile() ? 45 : 30
   camera.updateProjectionMatrix()
 
   renderer.setSize(window.innerWidth, window.innerHeight)
